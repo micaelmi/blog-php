@@ -1,34 +1,35 @@
 /*=========== RESET ==========*/
 * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: none;
-    box-sizing: border-box;
-    font-family: "Klee One", cursive;
-  }
-  
-  body {
-    background-color: #292929;
-  }
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Klee One", cursive;
+}
 
-  a {
-    text-decoration: none;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  input[type=checkbox] {
-    cursor: pointer;
-  }
+body {
+  background-color: #292929;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
