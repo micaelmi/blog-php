@@ -1,0 +1,73 @@
+article {
+  max-width: 700px;
+  margin: 0 0 10% 200px;
+}
+
+.cover {
+  margin: 2rem 0;
+  font-weight: 600;
+}
+
+h1,
+h2 {
+  color: #cec5b3;
+}
+
+h4 {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.article-text {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+form {
+  margin: 1rem 0;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+input {
+  border: 1px solid #a4a4a4;
+  border-radius: 8px;
+  background: transparent;
+  padding: 0.5rem;
+  width: 400px;
+  color: #fff;
+}
+
+form button {
+  border: 1px solid #a4a4a4;
+  border-radius: 8px;
+  background: transparent;
+  padding: 0.5rem;
+  aspect-ratio: 1/1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comment-card {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comment-card img {
+  width: 48px;
+  border-radius: 8px;
+}
+.comment-card .text .user {
+  color: #ffd700;
+  font-weight: 600;
+}

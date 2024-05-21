@@ -1,0 +1,96 @@
+header {
+  background-color: #ffd700;
+  padding: 0.5rem 0;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+header .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+  color: #292929;
+}
+
+header .links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+header .links a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 0.5rem;
+  color: #000;
+}
+
+header .links select {
+  border: 1px solid #000;
+  border-radius: 2.5rem;
+  padding: 0.25rem 0;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.btn-line {
+  width: 25px;
+  height: 3px;
+  background-color: #292929;
+  margin: 3px 0;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #292929;
+  color: #fff;
+  transition: right 0.3s ease;
+}
+
+.menu button {
+  width: 95%;
+  margin-right: 5%;
+  text-align: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.menu ul li:hover {
+  background-color: #313131;
+}

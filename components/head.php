@@ -15,5 +15,7 @@ function head($title)
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Klee+One:wght@400;600&family=Jua&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="../css/global.css">
+  <!-- JS -->
+  <script defer src="../js/global.js"></script>
 HTML;
 }
