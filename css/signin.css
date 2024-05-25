@@ -44,6 +44,13 @@ main {
   font-size: 2rem;
 }
 
+.options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
 select {
   border: 1px solid #000;
   border-radius: 2.5rem;
@@ -88,7 +95,8 @@ select {
   background-color: #247926;
 }
 
-.card-footer a {
+.card-footer a,
+.options a {
   color: #fff;
   text-align: center;
   text-decoration: underline;

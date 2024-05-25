@@ -18,11 +18,14 @@
     <div class="card">
       <div class="card-header">
         <h1>sign up</h1>
-        <select name="language" id="language">
-          <option value="en">EN</option>
-          <option value="pt">PT</option>
-          <option value="es">ES</option>
-        </select>
+        <div class="options">
+          <select name="language" id="language">
+            <option value="en">EN</option>
+            <option value="pt">PT</option>
+            <option value="es">ES</option>
+          </select>
+          <a href="home.php">home</a>
+        </div>
       </div>
       <form action="">
         <div class="card-content">

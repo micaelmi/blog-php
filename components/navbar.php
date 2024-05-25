@@ -32,8 +32,8 @@ function navbar()
                 <div class="menu">
                     <ul>
                     <button onclick="toggleMenu()">x</button>
-                    <li><a href="/blog-php/pages/home.php">Home</a></li>
-                    <li><a href="/blog-php/admin/my-articles.php">My articles</a></li>
+                    <li><a href="/blog/pages/home.php">Home</a></li>
+                    <li><a href="/blog/admin/my-articles.php">My articles</a></li>
                     <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
