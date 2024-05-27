@@ -4,19 +4,24 @@ function navbar()
     return <<<HTML
   <header>
         <div class="container content">
+            <div class="onlylogo">
+                <img src="../img/icon.svg" alt="Logo">
+            </div>
             <div class="logo">
                 <img src="../img/icon.svg" alt="Logo">
                 ECIA Economy
             </div>
             <div class="links">
-                <a href="signin.php">
-                    <img src="../img/signin.svg" alt="Sign in">
-                    <p>Sign in</p>
-                </a>
-                <a href="signup.php">
-                    <img src="../img/signup.svg" alt="Sign up">
-                    <p>Sign up</p>
-                </a>
+                <div class="loginlinks">
+                    <a href="signin.php">
+                        <img src="../img/signin.svg" alt="Sign in">
+                        <p id="signin">Sign in</p>
+                    </a>
+                    <a href="signup.php">
+                        <img src="../img/signup.svg" alt="Sign up">
+                        <p id="signup">Sign up</p>
+                    </a>
+                </div>
                 <select name="language" id="language">
                     <option value="en">EN</option>
                     <option value="pt">PT</option>
@@ -32,9 +37,11 @@ function navbar()
                 <div class="menu">
                     <ul>
                     <button onclick="toggleMenu()">x</button>
-                    <li><a href="/blog/pages/home.php">Home</a></li>
-                    <li><a href="/blog/admin/my-articles.php">My articles</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a id="home" href="/blog-php/pages/home.php">Home</a></li>
+                    <li><a id="my-articles" href="/blog-php/admin/my-articles.php">My articles</a></li>
+                    <li><a id="signin-menu" href="/blog-php/pages/signin.php">Sign in</a></li>
+                    <li><a id="signup-menu" href="/blog-php/pages/signup.php">Sign up</a></li>
+                    <li><a id="logout" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>

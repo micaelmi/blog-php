@@ -11,6 +11,10 @@ header .content {
   align-items: center;
 }
 
+.onlylogo {
+  display: none;
+}
+
 .logo {
   display: flex;
   gap: 1rem;
@@ -38,6 +42,11 @@ header .links select {
   border: 1px solid #000;
   border-radius: 2.5rem;
   padding: 0.25rem 0;
+}
+
+.loginlinks {
+  display: flex;
+  gap: 2rem;
 }
 
 .menu-btn {
@@ -93,4 +102,20 @@ header .links select {
 
 .menu ul li:hover {
   background-color: #313131;
+}
+
+@media (max-width: 700px) {
+  .loginlinks {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .onlylogo {
+    display: block;
+  }
+
+  .logo {
+    display: none;
+  }
 }

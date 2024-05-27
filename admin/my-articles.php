@@ -11,6 +11,7 @@ include_once '../components/back-button.php';
     <?php echo head('Article | ECIA Economy'); ?>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/my-articles.css">
+    <script defer src="../js/translation.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@ include_once '../components/back-button.php';
             </tbody>
         </table>
 
-        <a class="new-article" href="#">
+        <a class="new-article" href="/blog-php/admin/create-article.php">
             write new
         </a>
         </article>

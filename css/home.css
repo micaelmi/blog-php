@@ -1,0 +1,60 @@
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+}
+
+.title h1 {
+  color: var(--title-color);
+}
+
+.articleCard {
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.cardInfo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cardInfo i {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.cardInfo small {
+  display: flex;
+  align-self: end;
+}
+
+.articlesList {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 700px) {
+  .articleCard {
+    width: 250px;
+  }
+}
+
+@media (max-width: 460px) {
+  .title {
+    justify-content: center;
+  }
+
+  .title img {
+    display: none;
+  }
+}

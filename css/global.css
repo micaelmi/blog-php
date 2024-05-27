@@ -8,6 +8,12 @@
   font-family: "Klee One", cursive;
 }
 
+:root {
+  --title-color: #cec5b3;
+  --primary-color: #ffd700;
+  --placeholder-color: #b1b1b1;
+}
+
 body {
   background-color: #292929;
   color: #fff;
