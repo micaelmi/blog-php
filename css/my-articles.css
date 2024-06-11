@@ -2,6 +2,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  overflow-x: auto;
 }
 th,
 td {
@@ -38,4 +39,11 @@ tr:nth-child(odd) {
 
 .new-article:hover {
   background-color: #247926;
+}
+
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    overflow-x: auto;
+  }
 }

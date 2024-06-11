@@ -1,6 +1,6 @@
 article {
   max-width: 700px;
-  margin: 0 0 10% 200px;
+  margin: 0 10% 5% 10%;
 }
 
 .cover {
@@ -18,9 +18,9 @@ h4 {
   font-weight: 600;
 }
 
-.article-text {
+article p {
   text-align: justify;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 form {
@@ -65,9 +65,15 @@ form button {
 
 .comment-card img {
   width: 48px;
-  border-radius: 8px;
 }
 .comment-card .text .user {
   color: #ffd700;
   font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  article {
+    max-width: 700px;
+    margin: 0 5% 5% 5%;
+  }
 }

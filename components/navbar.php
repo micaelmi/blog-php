@@ -4,20 +4,22 @@ function navbar()
     return <<<HTML
   <header>
         <div class="container content">
-            <div class="onlylogo">
-                <img src="../img/icon.svg" alt="Logo">
-            </div>
-            <div class="logo">
-                <img src="../img/icon.svg" alt="Logo">
-                ECIA Economy
-            </div>
+            <a href="/blog-php/pages/home.php">
+                <div class="onlylogo">
+                    <img src="../img/icon.svg" alt="Logo">
+                </div>
+                <div class="logo">
+                    <img src="../img/icon.svg" alt="Logo">
+                    ECIA Economy
+                </div>
+            </a>
             <div class="links">
                 <div class="loginlinks">
-                    <a href="signin.php">
+                    <a href="/blog-php/pages/signin.php">
                         <img src="../img/signin.svg" alt="Sign in">
                         <p id="signin">Sign in</p>
                     </a>
-                    <a href="signup.php">
+                    <a href="/blog-php/pages/signup.php">
                         <img src="../img/signup.svg" alt="Sign up">
                         <p id="signup">Sign up</p>
                     </a>

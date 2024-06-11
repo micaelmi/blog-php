@@ -25,7 +25,7 @@
             <option value="pt">PT</option>
             <option value="es">ES</option>
           </select>
-          <a href="home.php">home</a>
+          <a href="home.php" id="home_link">home</a>
         </div>
       </div>
       <form action="">
