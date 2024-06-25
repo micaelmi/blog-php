@@ -5,23 +5,27 @@ $password = filter_input(INPUT_POST, "password", FILTER_DEFAULT);
 
 include_once '../db.php';
 
-$bd = connection();
-$sql = "SELECT userId FROM user WHERE email = '$email' AND password = '$password'";
-$command = $bd->query($sql);
-$result = $command->fetch(PDO::FETCH_ASSOC);
+$db = connection();
+$sql = "SELECT userId, name, password FROM user WHERE email = :email";
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$result) {
-  $error = "?email=" . $email . "&error=Incorrect credentials";
-  header("location: ../../pages/signin.php" . $error);
+if (!$result || !password_verify($password, $result['password'])) {
+  $error = "?email=" . urlencode($email) . "&error=Incorrect credentials";
+  header("Location: ../../pages/signin.php" . $error);
   exit();
 }
 
 $expiresIn = time() + (60 * 60 * 24); // 1 dia
 
-$data[0] = $email;
-$data[1] = $senha;
+$data = [
+  'userId' => $result['userId'],
+  'name' => $result['name']
+];
 
 setcookie("login", serialize($data), $expiresIn, '/');
 
-header("location:../../pages/home.php");
+header("Location: ../../pages/home.php");
 exit();

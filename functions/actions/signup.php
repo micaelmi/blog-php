@@ -10,30 +10,18 @@ include_once '../db.php';
 
 $db = connection();
 $sql = "
-INSERT INTO user (userId, name, email, password, username) VALUES (NULL, $name, $email, $hashed_password, $username);
+INSERT INTO user (name, email, password, username) VALUES (:name, :email, :password, :username);
 ";
-try {
-  $db->beginTransaction();
-  $linhas = $db->exec($sql);
-  if ($linhas == 1) {
-    $db->commit();
-  } else {
-    $db->rollBack();
-  }
-} catch (Exception $ex) {
-  $params = "";
-  $params = "erro=user already exists";
 
-  $params .= "&name=$name";
-  $params .= "&username=$username";
-  $params .= "&email=$email";
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':password', $hashed_password);
+$stmt->bindParam(':username', $username);
 
+if ($stmt->execute()) {
   $db = null;
-  header("location:../../pages/signup.php?$params");
-  die();
+  header("location:../../pages/signin.php");
+} else {
+  header("location:../../pages/signin.php?error=error creating user");
 }
-
-
-$db = null;
-
-header("location:../../pages/signin.php");
