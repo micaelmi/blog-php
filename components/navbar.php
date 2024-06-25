@@ -27,7 +27,7 @@ HTML : '';
             <button onclick="toggleMenu()">x</button>
             <li><a id="home" href="/blog-php/pages/home.php">Home</a></li>
             <li><a id="my-articles" href="/blog-php/admin/my-articles.php">My articles</a></li>
-            <li><a id="logout" href="/blog-php/pages/logout.php">Logout</a></li>
+            <li><a id="logout" href="/blog-php/functions/actions/logout.php">Logout</a></li>
         </ul>
     </div>
 HTML : '';
