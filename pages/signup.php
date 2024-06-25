@@ -28,19 +28,19 @@
           <a href="home.php" id="home_link">home</a>
         </div>
       </div>
-      <form action="">
+      <form method="POST" action="../functions/actions/signup.php">
         <div class="card-content">
           <label for="name" id="name_label">name</label>
-          <input name="name" id="name" type="text" placeholder="enter your full name">
+          <input required name="name" id="name" type="text" placeholder="enter your full name">
 
           <label for="username" id="username_label">username</label>
-          <input name="username" id="username" type="text" placeholder="create a unique username">
+          <input required name="username" id="username" type="text" placeholder="create a unique username">
 
           <label for="email" id="email_label">email</label>
-          <input name="email" id="email" type="email" placeholder="enter your email address">
+          <input required name="email" id="email" type="email" placeholder="enter your email address">
 
           <label for="password" id="password_label">password</label>
-          <input name="password" id="password" type="password" placeholder="enter your password">
+          <input required name="password" id="password" type="password" placeholder="enter your password">
         </div>
         <div class="card-footer">
           <button type="submit" id="submit_button">create account</button>

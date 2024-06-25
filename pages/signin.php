@@ -28,7 +28,7 @@
           <a href="home.php" id="home_link">home</a>
         </div>
       </div>
-      <form action="">
+      <form method="POST" action="../functions/actions/signin.php">
         <div class="card-content">
           <label for="email" id="email_label">email</label>
           <input name="email" id="email" type="email" placeholder="enter your email address">
