@@ -2,75 +2,63 @@
 include_once '../components/head.php';
 include_once '../components/navbar.php';
 include_once '../components/back-button.php';
+include_once '../functions/actions/get-articles-by-author.php';
+// Verificar se o usuário está logado
+if (!isset($_COOKIE['login'])) {
+    header("Location: ../pages/signin.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <?php echo head('Article | ECIA Economy'); ?>
+    <?= head('Article | ECIA Economy'); ?>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/my-articles.css">
     <script defer src="../js/translation.js"></script>
 </head>
 
 <body>
-    <?php echo navbar() ?>
+    <?php echo navbar(); ?>
+
     <main class="container">
-        <?php echo backButton(); ?>
-        <h1>My Articles</h1>
+        <a href="/blog-php/pages/home.php">
+            <img src="../img/back-arrow.svg" alt="Voltar">
+        </a>
+        <h1 id="title">My Articles</h1>
+
         <table>
             <thead>
                 <tr>
-                    <th>date</th>
-                    <th>title</th>
-                    <th>actions</th>
+                    <th id="tb-date">Date</th>
+                    <th id="tb-title">Title</th>
+                    <th id="tb-actions">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2024-05-01</td>
-                    <td>How can I reach $100,000 earning a low salary</td>
-                    <td class="actions">
-                        <a href="#"><img src="../img/view.svg" alt="view"></a>
-                        <a href="#"><img src="../img/edit.svg" alt="edit"></a>
-                        <a href="#"><img src="../img/delete.svg" alt="delete"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2024-05-01</td>
-                    <td>How can I reach $100,000 earning a low salary</td>
-                    <td class="actions">
-                        <a href="#"><img src="../img/view.svg" alt="view"></a>
-                        <a href="#"><img src="../img/edit.svg" alt="edit"></a>
-                        <a href="#"><img src="../img/delete.svg" alt="delete"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2024-05-01</td>
-                    <td>How can I reach $100,000 earning a low salary</td>
-                    <td class="actions">
-                        <a href="#"><img src="../img/view.svg" alt="view"></a>
-                        <a href="#"><img src="../img/edit.svg" alt="edit"></a>
-                        <a href="#"><img src="../img/delete.svg" alt="delete"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2024-05-01</td>
-                    <td>How can I reach $100,000 earning a low salary</td>
-                    <td class="actions">
-                        <a href="#"><img src="../img/view.svg" alt="view"></a>
-                        <a href="#"><img src="../img/edit.svg" alt="edit"></a>
-                        <a href="#"><img src="../img/delete.svg" alt="delete"></a>
-                    </td>
-                </tr>
+                <?php
+                // Iterar sobre os resultados da consulta
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<tr>";
+                    echo "<td>" . date('Y-m-d', strtotime($row['date'])) . "</td>"; // Formata a data conforme necessário
+                    echo "<td>{$row['title']}</td>";
+                    echo "<td class='actions'>";
+                    echo "<a href='/blog-php/pages/article.php?id={$row['articleId']}'><img src='../img/view.svg' alt='view'></a>"; // Link para visualizar o artigo
+                    echo "<a href='#'><img src='../img/edit.svg' alt='edit'></a>";
+                    echo "<a href='/blog-php/functions/actions/delete-article.php?id={$row['articleId']}'><img src='../img/delete.svg' alt='delete'></a>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                ?>
             </tbody>
         </table>
 
-        <a class="new-article" href="/blog-php/admin/create-article.php">
-            write new
+        <a id="new" class="new-article" href="/blog-php/admin/create-article.php">
+            Write New
         </a>
-        </article>
+    </main>
 </body>
 
 </html>

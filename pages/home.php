@@ -2,6 +2,7 @@
 include_once '../components/head.php';
 include_once '../components/articleCard.php';
 include_once '../components/navbar.php';
+include_once '../functions/actions/get-articles.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +23,11 @@ include_once '../components/navbar.php';
             <h1 id="title">Latest articles</h1>
         </div>
         <div class="articlesList">
-            <?= articleCard('../img/card-example.svg', 'Learn the top 5 secure investiments of May', '2024-06-04'); ?>
-            <?= articleCard('../img/card-example2.svg', 'How can I reach $100,000 earning a low salary', '2024-05-21'); ?>
-            <?= articleCard('../img/card-example3.svg', 'Young man succeeded brilliantly.', '2024-05-09'); ?>
+            <?php
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo articleCard("article.php?id={$row['articleId']}", $row['pictureUrl'], $row['title'], $row['date'], $row['lang'], $row['authorName']);
+            }
+            ?>
         </div>
     </main>
 </body>

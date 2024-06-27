@@ -6,6 +6,8 @@ article {
 .cover {
   margin: 2rem 0;
   font-weight: 600;
+  max-height: 400px;
+  width: 100%;
 }
 
 h1,

@@ -37,6 +37,6 @@ CREATE TABLE comment (
     date DATETIME NOT NULL,
     articleId INT,
     author INT,
-    FOREIGN KEY (articleId) REFERENCES article(articleId),
-    FOREIGN KEY (author) REFERENCES user(userId)
+    FOREIGN KEY (articleId) REFERENCES article(articleId) ON DELETE CASCADE,
+    FOREIGN KEY (author) REFERENCES user(userId) ON DELETE CASCADE
 );

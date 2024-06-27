@@ -16,6 +16,19 @@
   width: 300px;
   cursor: pointer;
   color: #fff;
+  padding-bottom: 1rem;
+}
+
+.articleImage {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.articleCard h2,
+.articleCard p {
+  padding-left: 1rem;
 }
 
 .cardInfo {
