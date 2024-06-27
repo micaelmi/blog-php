@@ -14,7 +14,18 @@ function navbar()
             <p id="signup">Sign up</p>
         </a>
     </div>
-HTML : '';
+HTML : <<<HTML
+    <div class="loginlinks" style="visibility: hidden;">
+        <a href="/blog-php/pages/signin.php">
+            <img src="../img/signin.svg" alt="Sign in">
+            <p id="signin">Sign in</p>
+        </a>
+        <a href="/blog-php/pages/signup.php">
+            <img src="../img/signup.svg" alt="Sign up">
+            <p id="signup">Sign up</p>
+        </a>
+    </div>
+HTML;
 
     $menu = $isLoggedIn ? <<<HTML
     <div class="menu-btn" onclick="toggleMenu()">
@@ -30,7 +41,21 @@ HTML : '';
             <li><a id="logout" href="/blog-php/functions/actions/logout.php">Logout</a></li>
         </ul>
     </div>
-HTML : '';
+HTML : <<<HTML
+    <div class="menu-btn" onclick="toggleMenu()" style="visibility: hidden;">
+                    <div class="btn-line"></div>
+                    <div class="btn-line"></div>
+                    <div class="btn-line"></div>
+                </div>
+    <div class="menu">
+        <ul>
+            <button onclick="toggleMenu()">x</button>
+            <li><a id="home" href="/blog-php/pages/home.php">Home</a></li>
+            <li><a id="my-articles" href="/blog-php/admin/my-articles.php">My articles</a></li>
+            <li><a id="logout" href="/blog-php/functions/actions/logout.php">Logout</a></li>
+        </ul>
+    </div>
+HTML;
 
     return <<<HTML
     <header>

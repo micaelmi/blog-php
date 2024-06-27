@@ -58,10 +58,6 @@ function loadContent(page, language) {
     document.getElementById("home").textContent = selected_content.home;
     document.getElementById("my-articles").textContent =
       selected_content.myArticles;
-    document.getElementById("signin-menu").textContent =
-      selected_content.signin;
-    document.getElementById("signup-menu").textContent =
-      selected_content.signup;
     document.getElementById("logout").textContent = selected_content.logout;
   }
 
