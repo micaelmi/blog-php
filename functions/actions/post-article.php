@@ -11,7 +11,7 @@ include_once '../db.php';
 
 // Tratamento do upload de imagem
 $picture = null;
-if (isset($_FILES['picture'])) {
+if (isset($_FILES['picture']) && $_FILES['picture']['error'] === UPLOAD_ERR_OK) {
   $fileTmpPath = $_FILES['picture']['tmp_name'];
   $fileName = $_FILES['picture']['name'];
   $fileNameCmps = explode(".", $fileName);
@@ -32,6 +32,9 @@ if (isset($_FILES['picture'])) {
     echo "Error uploading the file.";
     exit();
   }
+} elseif ($_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
+  echo "Error uploading the file.";
+  exit();
 }
 
 $db = connection();
