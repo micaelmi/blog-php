@@ -50,10 +50,10 @@ if (!isset($_COOKIE['login'])) {
     const input = document.getElementById("picture");
 
     input.addEventListener("change", function() {
-        if(input.value) {
+        if (input.value) {
             document.getElementById("labelPicture").textContent = ((input.value).split("\\")).pop();
         } else {
-            loadContent("create-article", localStorage.getItem('language'));
+            loadContent("create-article", document.getElementById('language'));
         }
     });
 

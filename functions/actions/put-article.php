@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
 
   $id = intval($_GET['id']);
 
-  if (isset($_FILES['picture'])) {
+  if (isset($_FILES['picture']) && $_FILES['picture']['size'] > 0) {
     $fileTmpPath = $_FILES['picture']['tmp_name'];
     $fileName = $_FILES['picture']['name'];
     $fileNameCmps = explode(".", $fileName);
@@ -29,6 +29,7 @@ if (isset($_GET['id'])) {
       $picture = $databasePath . $newFileName;
     } else {
       echo "Error uploading the file.";
+      echo $_FILES['picture']['size'];
       exit();
     }
   }
@@ -55,7 +56,7 @@ if (isset($_GET['id'])) {
 
   try {
     // SQL para edição do artigo
-    if (isset($_FILES['picture'])) {
+    if (isset($_FILES['picture']) && $_FILES['picture']['size'] > 0) {
       $sql = "UPDATE article
       SET pictureUrl = :picture, title = :title, content = :content, languageId = :languageId
       WHERE articleId = :id";
@@ -69,7 +70,7 @@ if (isset($_GET['id'])) {
 
       $stmt = $db->prepare($sql);
     }
-    
+
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':content', $content);

@@ -14,14 +14,14 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 // Verificar se o ID é válido
 if (!$id) {
-  die("Invalid article ID.");
+    die("Invalid article ID.");
 }
 
 // Obter o artigo do banco de dados
 $article = getArticleById($id);
 
 if (!$article) {
-  die("Article not found.");
+    die("Article not found.");
 }
 
 $pictureUrlArray = explode("/", htmlspecialchars($article['pictureUrl']));
@@ -44,7 +44,7 @@ $fileLabelText = end($pictureUrlArray);
     <main class="container tamanho">
         <form action="../functions/actions/put-article.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
             <a href="/blog-php/pages/home.php">
-            <img src="../img/back-arrow.svg" alt="Voltar">
+                <img src="../img/back-arrow.svg" alt="Voltar">
             </a>
             <h1 id="create-title">Edit your article</h1>
             <div>
@@ -76,10 +76,10 @@ $fileLabelText = end($pictureUrlArray);
     const input = document.getElementById("picture");
 
     input.addEventListener("change", function() {
-        if(input.value) {
+        if (input.value) {
             document.getElementById("labelPicture").textContent = ((input.value).split("\\")).pop();
         } else {
-            loadContent("create-article", localStorage.getItem('language'));
+            loadContent("create-article", document.getElementById('language'));
         }
     });
 
