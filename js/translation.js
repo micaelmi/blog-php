@@ -23,7 +23,7 @@ window.addEventListener("load", function (event) {
 });
 
 function loadContent(page, language) {
-  if (page == "home" || page == "create-article" || page == "my-articles") {
+  if (page == "home" || page == "create-article" || page == "edit-article" || page == "my-articles") {
     const content = {
       en: {
         signin: "Sign in",
@@ -240,6 +240,62 @@ function loadContent(page, language) {
     if (language == "es") selected_content = content.es;
 
     document.getElementById("title").textContent = selected_content.title;
+  }
+
+  if (page == "edit-article") {
+    const content = {
+      en: {
+        createTitle: "Edit your article",
+        coverPicture: "Upload a cover picture",
+        labelPicture: "--- Select your file ---",
+        articleTitleLabel: "Title",
+        title: "give a great title to your post",
+        contentLabel: "Content",
+        content: "write your text here",
+        sendArticle: "Change ✍",
+      },
+      pt: {
+        createTitle: "Edite seu artigo",
+        coverPicture: "Escolha uma imagem de fundo",
+        labelPicture: "--- Selecione seu arquivo ---",
+        articleTitleLabel: "Título",
+        title: "dê um bom título ao seu artigo",
+        contentLabel: "Conteúdo",
+        content: "escreva seu texto aqui",
+        sendArticle: "Alterar ✍",
+      },
+      es: {
+        createTitle: "Edite su artículo",
+        coverPicture: "Elija una imagen de fondo",
+        labelPicture: "--- Seleccionar el archivo ---",
+        articleTitleLabel: "Título",
+        title: "Dale un buen título a tu artículo",
+        contentLabel: "Contenido",
+        content: "escriba su texto aquí",
+        sendArticle: "Modificar ✍",
+      },
+    };
+
+    let selected_content;
+    if (language == "en") selected_content = content.en;
+    if (language == "pt") selected_content = content.pt;
+    if (language == "es") selected_content = content.es;
+
+    document.getElementById("create-title").textContent = selected_content.createTitle;
+    document.getElementById("cover-picture").textContent = selected_content.coverPicture;
+
+    const labelPicture = document.getElementById("labelPicture").textContent;
+    if(labelPicture == "--- Select your file ---" ||
+      labelPicture == "--- Selecione seu arquivo ---" ||
+      labelPicture == "--- Seleccionar el archivo ---") {
+        labelPicture = selected_content.labelPicture;
+    }
+
+    document.getElementById("article-title-label").textContent = selected_content.articleTitleLabel;
+    document.getElementById("content-label").textContent = selected_content.contentLabel;
+    document.getElementById("content").placeholder = selected_content.content;
+    document.getElementById("title").placeholder = selected_content.title;
+    document.getElementById("sendArticle").textContent = selected_content.sendArticle;
   }
 
   if (page == "create-article") {

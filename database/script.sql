@@ -40,3 +40,14 @@ CREATE TABLE comment (
     FOREIGN KEY (articleId) REFERENCES article(articleId) ON DELETE CASCADE,
     FOREIGN KEY (author) REFERENCES user(userId) ON DELETE CASCADE
 );
+
+-- Insert languages
+INSERT INTO language (
+    languageId, name, abbreviation
+) VALUES (
+    1, "Portuguese", "pt"
+), (
+    2, "English", "en"
+), (
+    3, "Espanish", "es"
+);

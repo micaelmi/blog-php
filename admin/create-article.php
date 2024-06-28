@@ -23,7 +23,7 @@ if (!isset($_COOKIE['login'])) {
 <body>
     <?php echo navbar() ?>
     <main class="container tamanho">
-        <form action="../functions/actions/post-article.php" method="POST" enctype="multipart/form-data">
+        <form action="../functions/actions/post-article.php" method="POST" enctype="multipart/form-data" id="uploadForm">
             <h1 id="create-title">Create article</h1>
             <div>
                 <label id="cover-picture" class="labelTitle" for="labelPicture">Upload a cover picture</label>
@@ -41,14 +41,61 @@ if (!isset($_COOKIE['login'])) {
             <input type="hidden" name="lang" id="lang">
             <button id="sendArticle" name="sendArticle">Launch 🚀</button>
         </form>
+        <div id="errorMessage" class="error-message" style="display: none;">Please select a cover picture.</div>
     </main>
 </body>
 <script>
+    window.addEventListener("load", setLanguage);
+
+    const input = document.getElementById("picture");
+
+    input.addEventListener("change", function() {
+        if(input.value) {
+            document.getElementById("labelPicture").textContent = ((input.value).split("\\")).pop();
+        } else {
+            loadContent("create-article", localStorage.getItem('language'));
+        }
+    });
+
     function setLanguage() {
         var localLanguage = localStorage.getItem('language');
         document.getElementById('lang').value = localLanguage;
     }
-    window.addEventListener("load", setLanguage);
+
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+      var pictureInput = document.getElementById('picture');
+      var errorMessage = document.getElementById('errorMessage');
+      var lang = localStorage.getItem('language'); // Obter o idioma do localStorage
+
+      var errorMessages = {
+        'en': {
+          'noPicture': 'Please select a cover picture.',
+          'languageError': 'Error finding language.'
+        },
+        'pt': {
+          'noPicture': 'Por favor, selecione uma imagem de capa.',
+          'languageError': 'Erro ao encontrar o idioma.'
+        },
+        'es': {
+          'noPicture': 'Por favor, seleccione una imagem de portada.',
+          'languageError': 'Error al encontrar el idioma.'
+        }
+        // Adicione mais idiomas conforme necessário
+      };
+
+      var selectedErrorMessages = errorMessages[lang];
+
+      if (pictureInput.files.length === 0) {
+        // Show error message for no picture selected
+        errorMessage.textContent = selectedErrorMessages['noPicture'];
+        errorMessage.style.display = 'block';
+        // Prevent form submission
+        event.preventDefault();
+      } else {
+        // Hide error message if a picture is selected
+        errorMessage.style.display = 'none';
+      }
+    });
 </script>
 
 </html>

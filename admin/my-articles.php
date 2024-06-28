@@ -46,7 +46,7 @@ if (!isset($_COOKIE['login'])) {
                     echo "<td>{$row['title']}</td>";
                     echo "<td class='actions'>";
                     echo "<a href='/blog-php/pages/article.php?id={$row['articleId']}'><img src='../img/view.svg' alt='view'></a>"; // Link para visualizar o artigo
-                    echo "<a href='#'><img src='../img/edit.svg' alt='edit'></a>";
+                    echo "<a href='/blog-php/admin/edit-article.php?id={$row['articleId']}'><img src='../img/edit.svg' alt='edit'></a>";
                     echo "<a href='/blog-php/functions/actions/delete-article.php?id={$row['articleId']}'><img src='../img/delete.svg' alt='delete'></a>";
                     echo "</td>";
                     echo "</tr>";

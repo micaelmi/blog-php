@@ -5,6 +5,11 @@ include_once '../components/back-button.php';
 include_once '../components/comment.php';
 include_once '../functions/actions/get-article-by-id.php';
 
+if (!isset($_COOKIE['login'])) {
+  header("Location: ../pages/signin.php");
+  exit();
+}
+
 // Recuperar o ID do artigo da URL
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
